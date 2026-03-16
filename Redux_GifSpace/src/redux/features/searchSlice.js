@@ -4,7 +4,7 @@ const searchSlice=createSlice({
     name:"SearchSlice",
     initialState:{
         query: '',
-        activeTabs:'photos',
+        activeTabs:'Photos',
         results:[],
         loading:false,
         error:null
