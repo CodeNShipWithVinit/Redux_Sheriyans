@@ -1,15 +1,14 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addCollection, addedToast } from '../redux/features/collectionSlice'
+import { removeCollection, removeToast } from '../redux/features/collectionSlice';
 
-const ResultCard= ({item}) => {
+const CollectionCard = ({item}) => {
     const dispatch=useDispatch();
 
-    const addToCollection=(item)=>{
-        dispatch(addCollection(item));
-        dispatch(addedToast());
+    const removeFromCollection=(item)=>{
+        dispatch(removeCollection(item.id))
+        dispatch(removeToast())
     }
-
 
   return (
     <div className='w-[18vw] h-50 relative bg-white rounded-xl overflow-hidden'>
@@ -19,11 +18,13 @@ const ResultCard= ({item}) => {
         </a>
         <div id='bottom' className='flex justify-between gap-3 items-center w-full px-4 py-6 absolute bottom-0 text-white'>
             <h2 className='text-md font-semibold capitalize  line-clamp-2 overflow-hidden'>{item.title}</h2>
-            <button onClick={()=>{addToCollection(item)}} className='bg-green-500 active:scale-95 text-white rounded px-3 py-1 cursor-pointer font-medium'>Save</button>
+            <button onClick={()=>{
+                removeFromCollection(item)
+            }} className='bg-green-500 active:scale-95 text-white rounded px-3 py-1 cursor-pointer font-medium'>Remove</button>
         </div>
 
     </div>
   )
 }
 
-export default ResultCard
+export default CollectionCard
