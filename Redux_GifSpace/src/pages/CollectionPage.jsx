@@ -8,18 +8,22 @@ const CollectionPage = () => {
   const dispatch=useDispatch();
 
   const clearAll=()=>{
-    dispatch(clearCollection);
+    dispatch(clearCollection());
   }
 
   return (
     <div className='overflow-auto px-6 py-6'>
-      <div className='flex justify-between mb-6'>
+      {
+        collection.length>0?
+        <div className='flex justify-between mb-6'>
         <h2 className='text-2xl font-medium'>Your Collection</h2>
         <button onClick={()=>{
           clearAll()
         }}
-        className='active:scale-95 transition cursor-pointer bg-red-600 px-8 py-3 text-xl font-medium rounded'>Clear Collection</button>
-      </div>
+        className='active:scale-95 transition cursor-pointer bg-red-600 px-8 py-3 text-lg font-medium rounded'>Clear Collection</button>
+      </div>:<h2 className='text-3xl py-10 text-gray-300 text-center font-medium'>Collection is Empty</h2>
+      }
+      
 
       <div className="flex justify-start w-full flex-wrap gap-5 ">
       {collection.map((item,idx)=>(

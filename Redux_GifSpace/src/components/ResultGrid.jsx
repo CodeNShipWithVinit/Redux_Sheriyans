@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPhotos, fetchVideos } from "../api/mediaApi";
 import {
-  setQuery,
   setLoading,
   setError,
   setResults,
