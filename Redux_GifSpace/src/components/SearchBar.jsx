@@ -23,7 +23,7 @@ const SearchBar = () => {
             type="text"
             value={text} 
             placeholder='Search anything...' />
-
+            console.log("Debugging");
             <button className='active:scale-95 cursor-pointer border-2 px-6 py-3 text-xl rounded outline-none'>Search</button>
 
         </form>
